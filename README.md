@@ -31,3 +31,12 @@ Given that we are 5 weeks away from the deadline of M3, we will first spend the 
 Once every score is available, we will spend one week using these scores to assess the questions of interest listed above, this will involve several tests, and eventually additional secondary studies which could provide supplementary explanations for our results.
 The last two weeks, we will be focusing on optimizing and cleaning the code, making sure that the code is well enough documented, creating great, powerful and meaningful visualisations of the results as well as writing our data story.
 
+## Questions to ask the TAs
+
+Statistics:
+We know that we have to make sure that propensity score should be balanced overall : it shoudln't be a problem for the principal analysis ie men vs. women. However, is it meaningful in this case where the "treatment" is being a man or a woman, as there are no observed covariated linked to it?
+
+Bootstrapping:
+Are there conditions necessary for using bootstrap resampling? 
+Indeed, we have seen instances of debates on how accurate bootstrapping is when considering small samples. We have not yet looked at the entire data set but it would not be surprising to have to deal with a very small sample.
+
