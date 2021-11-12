@@ -21,7 +21,7 @@ In order to calculate the score that is more meaningful instead of just taking a
 
 Once we computed a meaning score per speaker, our idea was to generalize the score to every quote without confident-referring words of the same speaker, supposing that even if there is no specific word relating to confidence, the speaker might be equally confident.
 
-Considering the speaker for whom it was impossible to compute a score e.g. because no words were recognized by our algorithm, we will perform a semantic comparison with already scored quotes. This comparison will allow us to access a score to quotes and ultimately to the speaker anyway.
+Considering the speaker for whom it was impossible to compute a score e.g. because no words were recognized by our algorithm, we will perform a comparison with already scored quotes based on confidence-related vocabulary. The idea would be to constitute a list of keywords that contribute to high confidence scores, extracted from quotes enounced by highly confident speakers. We will then use this library to parse the quotes of non-scored speakers and determine their respective confidence.
 
 
 To make sure we properly quantify the uncertainties, we will follow the statistical significance of our score by performing constant analysis of the deviation, and will provide confidence intervals for every score computed. Several tests will also be performed to assess if the means are comparable (Students’ t-tests). Additionally to p-values, we will also compute the effect size (Cohen’s d).
