@@ -1,48 +1,44 @@
-# Self-confidence: Is there significant evidence that women and men express themself differently regarding assurance ?
+# Can differences in self-confidence between men and women be determined from what they say?
 
-## test subtitle
+## Motivation
 
-### test subsubtitle
+Sociology studies have regularly analyzed how self-confidence varies amongst the genders, and overall results generally show that men tend to have higher self-confidence than women: a phenomenon that has been dubbed the “Confidence Gap”. Studies show that women usually underestimate their abilities, expect to be discovered for their incompetence at any time and often experience the “Imposter's Syndrome”, a sociological phenomenon where a person thinks they do not deserve their position. The main aim here is to determine whether this “Confidence Gap” is observable throughout quotations found in the Quotebank database. Following this, an interesting analysis would be to see whether profession could influence confidence, at least based on the provided expressions. We will thus compare quotations extracted from of US Congresswomen and US women who are not a Congress. Focus on a single gender should allow us to solely observe any profession-related variations.
 
-#### test subsubsubtitle
-
-Previous researchers have analyzed the influence of gender on self-confidence, and results show men tend to have higher self-confidence than women: this phenomenon has been dubbed the “Confidence Gap”. Studies showed that women usually underestimate their abilities, often experiencing “Imposter Syndrome”, where a person thinks they do not deserve their position and expect to be discovered for their incompetence at any time. We aim to determine whether this “Confidence Gap” is observable through verbal expression of the speakers in the Quotebank database. Following this, we will look at whether profession could influence confidence, at least based on speakers’ verbal expressions. We are thus interested in comparing the self-confidence of women that are at US Congress and those that are not. Focus on a single gender should allow us to solely observe any profession-related variations. If relevant, an confidence analysis on a variety of professions (all genders comprised) could be interesting.
+## Project Interrogations
 
 For this project, we will analyse the provided data and ultimately try to answer to the following interrogations: 
 
-Is there a difference in the expression of confidence between men and women?
-What are the most used phrases or expressions by confident vs less confident speakers?
-Does profession involving rhetoric influence results as well?
+* ***Is there a difference in the expression of confidence between men and women?***
+* ***What are the most used phrases or expressions by confident vs less confident speakers?***
+* ***Does profession involving rhetoric influence results as well?***
 
 In addition to the quotation-centric Quotebank data, we will use the additional information on speakers and the QID label descriptions provided by the ADA teaching staff.
 
-N.B : The article on which we are going to extract these confidence-relating phrases and on which we will base the comparison will be provided on the team’s GitHub.
+NB : The article on which we are going to extract these confidence-relating phrases and on which we will base the comparison will be provided on the team’s GitHub.
 
-To perform this analysis, we already pre-processed the data (ref. Notebook provided on the GitHub) in order to extract only the relevant information, namely speaker name, qID, quotation, gender, … 
+## Initial Analyses
 
-The next step will consist of analyzing the quotes for each speaker and assigning a score for each quote, which will help establish an overall confidence score for each speaker. To do this, we will look to use machine learning methods, namely natural-language processing (NLP). The initial process would be to, first, establish a “confidence coefficient” for key words or phrases such as “I believe”, “I am sure”, “I promise”, and more. Using this library and with the help of open-source machine learning APIs such as TensorFlow, we will then be able to tokenize the words of each quotation, evaluate each word’s “confidence” and determine an overall confidence value for each quotation. Following this preliminary score calculation, NLP is also capable of analysing the syntactic structure of the quotes, when provided with an initial set of rules to abide by,  and we could thus weight the overall score of a given quote as a function of its syntax. For example, imperative sentences could be weighted with more significance than declarative sentences. This syntactic analysis should also include punctuation as a key criterion. Indeed, quotes containing ellipses or exclamation marks can also be considered signs of varying confidence between speakers.
+### Pre-processing
+Our first step consisted in pre-processing and performing a first clean of the initial dataset (ensuring that there is a speaker associated to the quote, that there is a unique qID per speaker, that a speaker has at least one quotation, …) in order to extract only the relevant information, such as speaker name, speaker qID, quotation, gender, … We also had to add or clarify certain variables such as whether the speaker was from the USA or was a Congressperson, to facilitate further analysis. 
 
-After this text analysis, as mentioned previously, we will associate a value to each quotation according to our reference article. Those values will further be used to compute a confidence score for each speaker.
-In order to calculate the score that is more meaningful instead of just taking all their quote values and averaging them, one possibility could be to perform a non-parametric bootstrap. We will compute several scores using multiple subsets of quotations per speaker, and then average these scores to produce our final confidence score per speaker.
+### Confidence Scores!
+The first part consisted in analyzing each quote and assigning a confidence score for each, which will then be used to establish an overall confidence score for a given speaker. Basing off a sociology study that had experimentally associated confidence scores to certain key phrases such as "I believe", "I think", "I am sure", … ,  we were able to parse the dataset having tokenised these key phrases and thus find the number of occurences of these key words in each quotation. Chunking of the processed dataset was necessary in order to facilitate extraction of information. It is important to mention that the study adapted a score for key phrases in the present and in the past tense. We thus obtain an output table that contains qID, the quotation and the confidence_score. The confidence score was determined by simply retrieving the maximum value displayed by the quote. 
+Following this, merging the datasets containing the quotations' information with the speakers' dataset allowed us to summarise all elements relative to the speakers and namely allow us to determine an overall confidence score for each speaker. The speakers' confidence scores were determined by, once again, retrieving the maximum confidence score returned by each of his·her quotations.
 
-Once we computed a meaning score per speaker, our idea was to generalize the score to every quote without confident-referring words of the same speaker, supposing that even if there is no specific word relating to confidence, the speaker might be equally confident.
+### Are men really more confident than women??
+Having now obtained each speaker's score, we were able to plot and analyse many elements and subsets of this processed dataset. Various plots were used in order to visualise both the distributions (histograms, kernel density estimates, …) and key numerical values such as mean, max and min, standard deviation (boxplots, …) .The graphical analysis was performed in 3 parts:
 
-Considering the speaker for whom it was impossible to compute a score e.g. because no words were recognized by our algorithm, we will perform a comparison with already scored quotes based on confidence-related vocabulary. The idea would be to constitute a list of keywords that contribute to high confidence scores, extracted from quotes enounced by highly confident speakers. We will then use this library to parse the quotes of non-scored speakers and determine their respective confidence.
+#### *How are confidence scores distributed?*
+The idea here was to visualise:
+- Mean Score Distribution
+- Max Score Distribution
+- Standard Deviation Distribution
 
+#### *How are expressions distributed?*
+The idea here was to visualise:
+- Distribution of expressions from all speakers
+- Distribution of expressions from male and female speakers
+- Distributions of expressions from confident and non-confident speakers
 
-To make sure we properly quantify the uncertainties, we will follow the statistical significance of our score by performing constant analysis of the deviation, and will provide confidence intervals for every score computed. Several tests will also be performed to assess if the means are comparable (Students’ t-tests). Additionally to p-values, we will also compute the effect size (Cohen’s d).
-
-
-Given that we are 5 weeks away from the deadline of M3, we will first spend the two first weeks focusing on generating the ‘score’. This will include implementation of NLP-relative methods (tokenisation, syntax analysis, …) as well as a correct bootstrapping. Then, we will find a way of comparing non-scored speakers with scored ones, in order to have a fully scored set of speakers. In parallel, we will also generate every confidence interval associated with the newly produced data. 
-Once every score is available, we will spend one week using these scores to assess the questions of interest listed above, this will involve several tests, and eventually additional secondary studies which could provide supplementary explanations for our results.
-The last two weeks, we will be focusing on optimizing and cleaning the code, making sure that the code is well enough documented, creating great, powerful and meaningful visualisations of the results as well as writing our data story.
-
-## Questions to ask the TAs
-
-Statistics:
-We know that we have to make sure that propensity score should be balanced overall : it shoudln't be a problem for the principal analysis ie men vs. women. However, is it meaningful in this case where the "treatment" is being a man or a woman, as there are no observed covariated linked to it?
-
-Bootstrapping:
-Are there conditions necessary for using bootstrap resampling? 
-Indeed, we have seen instances of debates on how accurate bootstrapping is when considering small samples. We have not yet looked at the entire data set but it would not be surprising to have to deal with a very small sample.
-
+#### *How do men/women and US Congresswomen/Non-Congresswomen compare?*
+By plotting the maximum confidence scores of a given subset of speakers against another subset of speakers, we were able to determine which subgroup of speakers appeared more confident based on the expressions found in Quotebank's quotations. In order to assess significance of the difference in confidence, Student's t-tests were performed for each comparison of subgroups.
