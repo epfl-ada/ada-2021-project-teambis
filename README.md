@@ -1,5 +1,7 @@
 # Self-confidence: Is there significant evidence that women and men express themself differently regarding assurance ?
 
+## test subtitle
+
 Previous researchers have analyzed the influence of gender on self-confidence, and results show men tend to have higher self-confidence than women: this phenomenon has been dubbed the “Confidence Gap”. Studies showed that women usually underestimate their abilities, often experiencing “Imposter Syndrome”, where a person thinks they do not deserve their position and expect to be discovered for their incompetence at any time. We aim to determine whether this “Confidence Gap” is observable through verbal expression of the speakers in the Quotebank database. Following this, we will look at whether profession could influence confidence, at least based on speakers’ verbal expressions. We are thus interested in comparing the self-confidence of women that are at US Congress and those that are not. Focus on a single gender should allow us to solely observe any profession-related variations. If relevant, an confidence analysis on a variety of professions (all genders comprised) could be interesting.
 
 For this project, we will analyse the provided data and ultimately try to answer to the following interrogations: 
