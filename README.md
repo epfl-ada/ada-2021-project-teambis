@@ -72,4 +72,4 @@ By plotting the maximum confidence scores of a given subset of speakers against 
 * Maëva: extraction of important information relative to quotes/speakers, merging information of quotes/speakers, attempts to include dataset from other years, final analysis, association of confidence scores
 * Naomi: pre-processing, importing information from background study, final analysis, Data Story
 * Florette: pre-processing, initial data visualisation, attempt of semantic comparison, plotting , final analysis, Data Story
-* Alexy: initial data visualisation, syntactic comparison, plotting, final analysis
+* Alexy: initial data visualisation, syntactic comparison, plotting, final analysis, .readme file
