@@ -1,5 +1,9 @@
 # Can differences in self-confidence between men and women be determined from what they say?
 
+## 0 - Link to Data Story
+
+https://naomi-iizuka.github.io/
+
 ## 1 - Motivation
 
 Sociology studies have regularly analyzed how self-confidence varies amongst the genders, and overall results generally show that men tend to have higher self-confidence than women: a phenomenon that has been dubbed the “Confidence Gap”. Studies show that women usually underestimate their abilities, expect to be discovered for their incompetence at any time and often experience the “Imposter's Syndrome”, a sociological phenomenon where a person thinks they do not deserve their position. The main aim here is to determine whether this “Confidence Gap” is observable throughout quotations found in the Quotebank database for the year **2020**. Following this, an interesting analysis would be to see whether profession could influence confidence, at least based on the provided expressions. We will thus compare quotations extracted from of US Congresswomen and US women who are not a Congress. Focus on a single gender should allow us to solely observe any profession-related variations.
