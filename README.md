@@ -1,4 +1,4 @@
-# Can differences in self-confidence between men and women be observed from what they say?
+# Can differences in self-confidence between men and women be observed from what we say?
 
 ## 0 - Link to Data Story
 
